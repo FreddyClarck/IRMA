@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+
+{% load static %}
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Information Resource Manager for HR</title>
+
+    <!-- Bootstrap-->
+    {% load bootstrap3 %}
+    <script src="{% bootstrap_jquery_url %}"></script>
+    {% bootstrap_javascript %}
+    {% bootstrap_css %}
+
+    <!-- CSS style-->
+    <link rel="stylesheet" href="{% static "css/styles.css" %}" />
+
+</head>
+<body>
+    <div class="main">
+        <section class="registration">
+            <div class="container">
+                <div class="registration-content">
+                    <div class="registration-form">
+                        <h2 class="form-title">Информационные ресурсы</h2>
+                        <form method="POST" class="register-form" id="register-form">{% csrf_token %}
+                            <div class="form-group">
+                                <label>Нименование: </label>
+                                {{ form.name }}
+                            </div>
+                            <div class="form-group">
+                                <label>Тип: </label>
+                                {{ form.type }}
+                            </div>
+                            <div class="form-group form-button">
+                                <button typeof="submit" class="btn btn-primary">Отправить</button>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="registration-image">
+                        {% load static %}
+                        <figure><img src="{% static "img/registration-image.jpg" %}" alt="registration image"></figure>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+</body>
+</html>
